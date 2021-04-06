@@ -1,0 +1,126 @@
+@import "./variables";
+
+.myfnav {
+  position: fixed;
+  width: 100%;
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  .hamburger {
+    position: relative;
+    width: 4rem;
+    height: 2rem;
+    cursor: pointer;
+    z-index: 2;
+    .bar {
+      position: absolute;
+      height: 2px;
+      width: 80%;
+      left: 50%;
+      background: $grey;
+      transform: translateX(-50%);
+      transition: top 250ms 250ms, transform 250ms ease-out, background 250ms;
+    }
+    #bar1 {
+      top: 25%;
+    }
+    #bar2 {
+      top: 75%;
+    }
+    &.cross {
+      .bar {
+        transition: top 250ms, transform 250ms ease-out 250ms, background 250ms;
+      }
+      #bar1,
+      #bar2 {
+        top: 50%;
+        transform: translate(-50%, 0) rotate(-45deg);
+        background: $grey;
+      }
+      #bar2 {
+        transform: translate(-50%, 0) rotate(45deg);
+      }
+    }
+  }
+}
+
+.full-screen-navbar {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  clip-path: circle(0% at 100% 0);
+  transition: 300ms ease-out;
+  background: $black;
+  z-index: 99;
+  nav {
+    ul {
+      list-style: none;
+      text-align: center;
+      li {
+        text-transform: uppercase;
+        font-size: 5rem;
+        margin: 0.5em 0;
+        transform: translateY(0);
+        opacity: 1;
+        a {
+          text-decoration: none;
+          font-family: $poppins;
+          font-weight: 800;
+          color: transparent;
+          -webkit-text-stroke: 1px $light;
+          transition: 250ms ease-in-out;
+          &:hover {
+            color: $light;
+            letter-spacing: 2px;
+          }
+        }
+      }
+    }
+  }
+  &.show {
+    clip-path: circle(100% at 50% 50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .full-screen-navbar {
+    nav {
+      ul {
+        li {
+          font-size: 4rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .full-screen-navbar {
+    nav {
+      ul {
+        li {
+          font-size: 3.2rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .full-screen-navbar {
+    nav {
+      ul {
+        li {
+          font-size: 2.8rem;
+          margin: 0.7em 0;
+        }
+      }
+    }
+  }
+}

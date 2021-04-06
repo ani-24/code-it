@@ -1,0 +1,14 @@
+@import "./variables";
+
+.container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 10% 1fr 1fr 10%;
+  grid-template-areas: ". left right .";
+  .left-side {
+    grid-area: left;
+  }
+  .right-side {
+    grid-area: right;
+  }
+}

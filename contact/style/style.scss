@@ -1,0 +1,26 @@
+@import "./../../assets/style/links";
+@import "./../../assets/style/forms";
+
+body {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: $dark;
+}
+
+.hero-section {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .contact-container {
+    min-width: 70vh;
+    position: absolute;
+    background: lighten($color: $black, $amount: 5%);
+    padding: 50px;
+    color: $yellow;
+    border-radius: 5px;
+    box-shadow: inset 0 0 25px 10px rgba($color: $black, $alpha: 0.2);
+  }
+}
